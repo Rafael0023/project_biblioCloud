@@ -17,8 +17,16 @@ const UsuarioSchema = mongoose.Schema({
         type: String, 
         required: true, 
         enum: ['usuario', 'profesor', 'administrador'] 
-    }
+    },
+    libros: [{ type: mongoose.Schema.Types.ObjectId, ref: "vehiculo" }]
+
 }, 
 { timestamps: true });
+
+UsuarioSchema.methods.encryptContrasena = async (contrasena) => {
+    const salt = await bcrypt.genSalt(10);
+    return bcrypt.hash(contrasena, salt);
+}
+
 
 module.exports = mongoose.model("Usuario", UsuarioSchema);

@@ -2,16 +2,6 @@ const express = require("express");
 const router = express.Router();
 const usuarioSchema = require("../models/usuario");
 
-//crear un nuevo usuario
-
-router.post("/usuario", (req, res) => {
-    const usuario = usuarioSchema(req.body);
-    usuario
-        .save()
-        .then((data) => res.json(data))
-        .catch((error) => res.json({ message: error }));
-});
-module.exports = router;
 
 // consultar usuarios registrados 
 
@@ -33,10 +23,12 @@ router.get("/usuario/:id", (req, res) => {
 
 //modificar un usuario por su id
 
-router.put("/usuario/:id", (req, res) => {
+router.put("/usuario/:id",  async (req, res) => {
     const { id } = req.params;
     const { nombre, correo, contrasena, rol } = req.body;
-    usuarioSchema
+    
+    usuario.contrasena = await usuario.encryptContrasena(usuario.contrasena);
+    await usuarioSchema
         .updateOne({ _id: id }, {
             $set: { nombre, correo, contrasena, rol }
         })
@@ -56,3 +48,4 @@ router.delete("/usuario/:id", (req, res) => {
             res.json({ message: error });
         })
 });
+module.exports = router;
