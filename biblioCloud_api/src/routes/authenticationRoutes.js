@@ -25,7 +25,7 @@ router.post('/signup', async (req, res) => {
     res.json({
         usuario
     });
-  
+
 
 });
 
@@ -34,10 +34,10 @@ router.post('/signup', async (req, res) => {
 router.post("/login", async (req, res) => {
 
     // validaciones
-    const { error } = UsuarioSchema.validate(req.body.correo, req.body.contrasena);
+    const { error } = usuarioSchema.validate(req.body.correo, req.body.contrasena);
     if (error) return res.status(400).json({ error: error.details[0].message });
     //Buscando el usuario por su dirección de correo
-    const usuario = await UsuarioSchema.findOne({ correo: req.body.correo });
+    const usuario = await usuarioSchema.findOne({ correo: req.body.correo });
     //validando si no se encuentra
     if (!usuario) return res.status(400).json({ error: "Usuario no encontrado" });
     //Transformando la contraseña a su valor original para 
@@ -49,8 +49,8 @@ router.post("/login", async (req, res) => {
         expiresIn: 60 * 60 * 24, //un día en segundos tiempo valido para el  token
     });
     res.json({
-        
-        
+
+
         data: "Bienvenido(a)",
         auth: true,
         token,

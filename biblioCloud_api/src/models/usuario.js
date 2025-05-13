@@ -1,3 +1,4 @@
+const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
 
 const UsuarioSchema = mongoose.Schema({
@@ -18,7 +19,7 @@ const UsuarioSchema = mongoose.Schema({
         required: true, 
         enum: ['usuario', 'profesor', 'administrador'] 
     },
-    libros: [{ type: mongoose.Schema.Types.ObjectId, ref: "vehiculo" }]
+    libros: [{ type: mongoose.Schema.Types.ObjectId, ref: "libro" }]
 
 }, 
 { timestamps: true });

@@ -1,2 +1,3 @@
 # project_biblioCloud
 MONGODB_URI = mongodb+srv://rafael:owVo8249l81n70kt@cluster0.8lgyrmk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+SECRET=mysecretword
