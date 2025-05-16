@@ -1,0 +1,41 @@
+.footer-container {
+  background-color: #f5f5f5;
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #ccc;
+}
+
+.footer-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-icon-btn img {
+  width: 28px;
+  height: 28px;
+  transition: filter 0.3s ease;
+  filter: brightness(0) saturate(100%) invert(34%) sepia(91%) saturate(1046%) hue-rotate(176deg) brightness(101%) contrast(101%);
+}
+
+.footer-icon-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 14px rgba(0, 200, 255, 0.4);
+}
+
+.footer-icon-btn:hover img {
+  filter: brightness(0) saturate(100%) invert(49%) sepia(98%) saturate(272%) hue-rotate(158deg) brightness(100%) contrast(102%);
+}

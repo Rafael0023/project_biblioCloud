@@ -16,13 +16,12 @@
   align-items: center;
 }
 
-/* Fijar barra superior */
+
 .sticky-toolbar {
   position: sticky;
   top: 0;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.9);
-  /* asegúrate de dar fondo */
   backdrop-filter: blur(10px);
 }
 
@@ -54,28 +53,30 @@ button {
   margin: 5px;
 }
 
-/* Espaciado para evitar que el contenido quede tapado por la barra */
-.bienvenida {
-  max-width: 1200px;
-  margin: 80px auto 0 auto;
-  /* 80px de margen superior */
-  padding: 16px;
-  box-shadow: 0 6px 16px rgba(0, 136, 255, 0.1);
-  border-radius: 15px;
+
+
+
+
+
+
+.contact-section {
+    background:  #ecf0f1;
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 3rem auto;
+    max-width: 1000px;
+    box-shadow: 0 4px 10px rgba(0, 136, 255, 0.1);
 }
 
-.example-card {
-  border-radius: 15px;
-  background-color: #ecf0f1;
-  padding: 15px;
-}
 
-.nosotros {
-  max-width: 1200px;
-  margin: 80px auto 0 auto;
-  /* 80px de margen superior */
-  padding: 16px;
-  background-color: #ecf0f1;
-  box-shadow: 0 6px 16px rgba(0, 136, 255, 0.1);
-  border-radius: 15px;
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 20px 40px;
+    border-top: 1px solid #d0e7ff;
+    height: 100px;
+    box-shadow: 0 -4px 12px rgba(0, 153, 255, 0.1);
 }

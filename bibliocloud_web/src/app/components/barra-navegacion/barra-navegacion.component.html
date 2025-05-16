@@ -20,30 +20,16 @@
     </mat-toolbar>
 
     <!-- Contenido principal -->
-    <div class="bienvenida">
-      <mat-card class="example-card" appearance="outlined">
-        <mat-card-header style="justify-content: center;">
-          <mat-card-title style="font-size: 60px; color: rgb(111, 111, 236); padding: 5px;margin: 5px;">Bienvenido a BiblioCloud 📚</mat-card-title>
-          <mat-card-subtitle style="margin-left: 25%; font-size: 30px; padding: 10px;">Tu Biblioteca Digital Inteligente</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../../assets/img/imagen_principal.webp" alt="Imagen principal" style="border-radius: 15px;">
-      </mat-card>
-    </div>
-
-    <div class="nosotros" style="justify-content: center;">
-       <h2 style="font-size: 40px; color: rgb(111, 111, 236); padding: 5px;margin: 5px;">¿Qué es BiblioCloud?</h2>
-       <div> <p style="padding: 15px;">
-            BiblioCloud es una plataforma digital diseñada para facilitar el acceso a libros,
-            conocimiento y recursos de lectura desde cualquier lugar. Nuestro objetivo es fomentar
-            el hábito de la lectura mediante tecnología moderna y una experiencia intuitiva.
-            <br /><br />
-            Nuestra biblioteca ofrece una amplia colección de títulos en diferentes categorías,
-            desde literatura clásica hasta recursos académicos. Con acceso por roles,
-            estudiantes, docentes y lectores pueden explorar, comentar y descargar libros de forma segura.
-            <br /><br />
-            Nos apasiona democratizar el conocimiento y conectar a las personas con contenidos que transforman.
-          </p>
-          </div>
-    </div>
+    <bienvenida></bienvenida>
+    <!-- nosotros -->
+    <seccion-nosotros></seccion-nosotros>
+    <!--Libros destacados-->
+    <libros-destacados></libros-destacados>
+    <!--Seccion por que elegir bibliocloud-->
+    <por-que-bibliocloud></por-que-bibliocloud>
+    <!--seccion contacto-->
+    <contacto></contacto>
+    <!--pie de pagina-->
+    <pie-pagina></pie-pagina>
   </mat-sidenav-content>
 </mat-sidenav-container>
