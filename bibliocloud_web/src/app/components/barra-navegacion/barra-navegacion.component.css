@@ -1,0 +1,81 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Fijar barra superior */
+.sticky-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.9);
+  /* asegúrate de dar fondo */
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 0 4px #00c8ff);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a.links {
+  text-decoration: none;
+  font-size: medium;
+  margin: 10px;
+  color: black;
+}
+
+button {
+  margin: 5px;
+}
+
+/* Espaciado para evitar que el contenido quede tapado por la barra */
+.bienvenida {
+  max-width: 1200px;
+  margin: 80px auto 0 auto;
+  /* 80px de margen superior */
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(0, 136, 255, 0.1);
+  border-radius: 15px;
+}
+
+.example-card {
+  border-radius: 15px;
+  background-color: #ecf0f1;
+  padding: 15px;
+}
+
+.nosotros {
+  max-width: 1200px;
+  margin: 80px auto 0 auto;
+  /* 80px de margen superior */
+  padding: 16px;
+  background-color: #ecf0f1;
+  box-shadow: 0 6px 16px rgba(0, 136, 255, 0.1);
+  border-radius: 15px;
+}
