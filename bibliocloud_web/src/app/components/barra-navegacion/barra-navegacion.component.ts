@@ -15,6 +15,8 @@ import { LibrosDestacadosComponent } from '../libros-destacados/libros-destacado
 import { PorQueBibliocloudComponent } from '../por-que-bibliocloud/por-que-bibliocloud.component';
 import { ContactoComponent } from '../contacto/contacto.component';
 import { PiePaginaComponent } from '../pie-pagina/pie-pagina.component';
+import { FormularioRegistroComponent } from '../formulario-registro/formulario-registro.component';
+import { FormularioLoginComponent } from '../formulario-login/formulario-login.component';
 
 @Component({
   selector: 'barra-navegacion',
@@ -34,7 +36,9 @@ import { PiePaginaComponent } from '../pie-pagina/pie-pagina.component';
     LibrosDestacadosComponent,
     PorQueBibliocloudComponent,
     ContactoComponent,
-    PiePaginaComponent
+    PiePaginaComponent,
+    FormularioRegistroComponent,
+    FormularioLoginComponent
   ]
   
 })
