@@ -56,6 +56,7 @@ router.post("/login", async (req, res) => {
         token,
 
     });
+    console.log("bienvenido");
 
 });
 

@@ -1,9 +1,8 @@
-<mat-sidenav-container class="sidenav-container" style="background-color: #000;">
+<mat-sidenav-container >
   <mat-sidenav #drawer class="sidenav" fixedInViewport>
     <mat-toolbar>Menu</mat-toolbar>
   </mat-sidenav>
 
-  <mat-sidenav-content>
     <mat-toolbar color="gray" class="toolbar sticky-toolbar">
       <img class="logo" src="../../../assets/img/logo.jpg" alt="">
       <span class="spacer"></span>
@@ -19,7 +18,7 @@
       <button  [routerLink]="['/registro']" mat-flat-button >Registrarme</button>
     </mat-toolbar>
 
-    <router-outlet></router-outlet>
+  
 
-  </mat-sidenav-content>
+
 </mat-sidenav-container>
