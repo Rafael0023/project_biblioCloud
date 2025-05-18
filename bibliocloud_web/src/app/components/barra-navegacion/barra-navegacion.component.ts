@@ -31,7 +31,6 @@ import { RouterModule, RouterOutlet } from '@angular/router';
     MatListModule,
     MatIconModule,
     MatCardModule,
-    MatButtonModule,
     RouterModule,
     RouterOutlet,
   ]

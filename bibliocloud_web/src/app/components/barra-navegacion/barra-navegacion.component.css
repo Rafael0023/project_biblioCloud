@@ -50,10 +50,16 @@ a.links {
   color: black;
 }
 
-button {
-  margin: 5px;
-}
 
+button{
+      padding: 15px;
+      margin: 5px;
+      border-color: #007acc;  
+      border-style: solid;
+      border-radius: 15px;
+      color: #007acc;
+      font-size: 1rem;
+}
 
 
 

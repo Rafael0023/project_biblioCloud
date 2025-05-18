@@ -4,10 +4,11 @@
     padding: 15px;
 }
 
-.formulario-registro {
+form {
 
     background: #ecf0f1;
-    max-width: fit-content;
+    max-height: fit-content;
+    min-width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,4 +23,14 @@ h1 {
     font-weight: bold;
     color: #007acc;
     margin: 20px;
+}
+
+button{
+      padding: 15px;
+      margin: 5px;
+      border-color: #007acc;  
+      border-style: solid;
+      border-radius: 15px;
+      color: #007acc;
+      font-size: 1rem;
 }
