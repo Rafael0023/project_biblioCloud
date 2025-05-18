@@ -8,33 +8,18 @@
       <img class="logo" src="../../../assets/img/logo.jpg" alt="">
       <span class="spacer"></span>
       <ul class="nav-links">
-        <li><a class="links" href="/#about">BiblioCloud</a></li>
-        <li><a class="links" href="/#projects">Nosotros</a></li>
-        <li><a class="links" href="/#contact">Catálogo</a></li>
+        <li><a [routerLink]="['/']" class="links">BiblioCloud</a></li>
+        <li><a [routerLink]="['/nosotros']" class="links">Nosotros</a></li>
+        <li><a [routerLink]="['/catalogo']" class="links" >Catálogo</a></li>
         <li><a class="links" href="/quotes">Solicitar libro</a></li>
         <li><a class="links" href="/reviews">Reseñas</a></li>
       </ul>
       <span class="spacer"></span>
-      <button mat-stroked-button color="primary">Iniciar Sesión</button>
-      <button mat-flat-button color="primary">Registrarme</button>
+      <button [routerLink]="['/login']" mat-stroked-button color="primary" >Iniciar Sesión</button>
+      <button  [routerLink]="['/registro']" mat-flat-button color="primary">Registrarme</button>
     </mat-toolbar>
 
-    <!-- Contenido principal -->
-    <bienvenida></bienvenida>
-    <!-- nosotros -->
-    <seccion-nosotros></seccion-nosotros>
-    <!--Libros destacados-->
-    <libros-destacados></libros-destacados>
-    <!--Seccion por que elegir bibliocloud-->
-    <por-que-bibliocloud></por-que-bibliocloud>
-    <!--seccion contacto-->
-    <contacto></contacto>
-    <!--pie de pagina-->
-    <pie-pagina></pie-pagina>
-    <!--formulario registro-->
-  <formulario-registro></formulario-registro>
-  <!--formulario login-->
-  <formulario-login></formulario-login>
-
+    <router-outlet></router-outlet>
+    
   </mat-sidenav-content>
 </mat-sidenav-container>
