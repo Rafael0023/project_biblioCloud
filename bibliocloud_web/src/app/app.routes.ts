@@ -4,15 +4,20 @@ import { FormularioLoginComponent } from './components/formulario-login/formular
 import { BienvenidaComponent } from './components/bienvenida/bienvenida.component';
 import { SeccionNosotrosComponent } from './components/seccion-nosotros/seccion-nosotros.component';
 import { LibrosDestacadosComponent } from './components/libros-destacados/libros-destacados.component';
-import { PanelUsuarioComponent } from './panel-usuario/panel-usuario.component';
+import { PanelUsuarioComponent } from './components/panel-usuario/panel-usuario.component';
+import { NavegacionUsuariosComponent } from './components/navegacion-usuarios/navegacion-usuarios.component';
+import { ResenasComponent } from './components/resenas/resenas.component';
+import { SolicitudLibroComponent } from './components/solicitud-libro/solicitud-libro.component';
 
 export const routes: Routes = [
-  { path: 'registro', component: FormularioRegistroComponent },
+ { path: 'registro', component: FormularioRegistroComponent },
   { path: 'login', component: FormularioLoginComponent },
   { path: '', component: BienvenidaComponent },
   { path: 'nosotros', component: SeccionNosotrosComponent },
   { path: 'catalogo', component: LibrosDestacadosComponent },
-  { path: 'panelusuario', component: PanelUsuarioComponent }, 
+  { path: 'panelusuario', component: NavegacionUsuariosComponent }, 
+  { path: 'resenas', component: ResenasComponent } ,
+  { path: 'solicitud', component: SolicitudLibroComponent } ,
   { path: '**', redirectTo: '' } 
 ];
 

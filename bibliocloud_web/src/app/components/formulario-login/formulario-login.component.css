@@ -1,3 +1,7 @@
+.contenedor{
+    background-color:black;/*modifique esta*/
+    height: 80%;
+}
 .contenedor-formulario {
 
     justify-items: center;

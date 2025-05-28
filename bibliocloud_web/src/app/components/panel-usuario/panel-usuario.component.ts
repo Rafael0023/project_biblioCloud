@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-panel-usuario',
+  selector: 'panel-usuario',
   templateUrl: './panel-usuario.component.html',
   styleUrl: './panel-usuario.component.css',
   standalone: true,
