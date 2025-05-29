@@ -25,7 +25,7 @@ import { UsuarioService } from '../../services/usuario.service';
 })
 export class PanelUsuarioComponent {
   private breakpointObserver = inject(BreakpointObserver);
-  
+   constructor(){}
 
  
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(

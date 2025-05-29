@@ -1,43 +1,24 @@
-<div class="contenedor-libros" style="background-color: black;" >
+<div class="contenedor-libros" style="background-color: black;">
   <h2>Libros Destacados</h2>
   <div class="contenedor-tarjetas">
+    @for (libro of libros; track $index) {
     <mat-card class="card" appearance="outlined">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
       </mat-card-header>
-      <img mat-card-image src="../../../assets/img/project-1.gif" alt="libro 1984" />
-      <mat-card-content>
-        <mat-card-title>1984</mat-card-title>
-        <p>
-          Una novela clásica de George Orwell sobre vigilancia y libertad.
-        </p>
-      </mat-card-content>
-    </mat-card>
+      <img mat-card-image [src]="libro.imagen" alt="Portada de {{ libro.titulo }}" />
 
-    <mat-card class="card" appearance="outlined">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-      </mat-card-header>
-      <img mat-card-image src="../../../assets/img/project-2.webp" alt="El Principito" />
-      <mat-card-content>
-        <mat-card-title>El Principito</mat-card-title>
-        <p>
-          Un relato profundo sobre la infancia, la amistad y lo esencial.
-        </p>
-      </mat-card-content>
-    </mat-card>
 
-    <mat-card class="card" appearance="outlined">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-      </mat-card-header>
-      <img mat-card-image src="../../../assets/img/project-3.webp" alt="Era digital" />
       <mat-card-content>
-        <mat-card-title>Educación en la Era Digital</mat-card-title>
-        <p>
-          Explora cómo la tecnología impacta el aprendizaje actual.
-        </p>
+        <mat-card-title>{{libro.titulo}}</mat-card-title>
+        <p><strong>Autor:</strong> {{ libro.autor }}</p>
+        <p><strong>ISBN:</strong> {{ libro.isbn }}</p>
+        <p><strong>Editorial:</strong> {{ libro.editorial }}</p>
       </mat-card-content>
-    </mat-card>
+    </mat-card>}
+
+
+
+
   </div>
 </div>

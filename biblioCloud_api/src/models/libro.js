@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const LibroSchema = mongoose.Schema({
     titulo: { 
         type: String, 
@@ -14,15 +15,13 @@ const LibroSchema = mongoose.Schema({
     editorial: { 
         type: String 
     },
-    categoria: { 
-        type: String 
+    imagen:{
+        type : String 
     },
     popularidad: { 
         type: Number, default: 0 
     },
-    accesoExclusivo: { 
-        type: Boolean, default: false 
-    }, // Para profesores
+   
 }, { timestamps: true });
 
 module.exports = mongoose.model("Libro", LibroSchema);

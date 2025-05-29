@@ -4,6 +4,7 @@ const app = express();
 const port = 3000;
 const usuarioRoutes = require("./routes/usuarioRoutes");
 const authenticationRoutes = require("./routes/authenticationRoutes");
+const libroRoutes = require("./routes/libroRoutes");
 const mongoose = require("mongoose");
 require('dotenv').config();
 app.use(parser.urlencoded({ extended: false }));
@@ -11,6 +12,8 @@ app.use(parser.json());
 
 app.use("/api", usuarioRoutes);
 app.use("/api", authenticationRoutes);
+app.use("/api", libroRoutes);
+
 app.use(express.json());
 
 mongoose

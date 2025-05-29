@@ -8,7 +8,6 @@ import { PanelUsuarioComponent } from './components/panel-usuario/panel-usuario.
 import { NavegacionUsuariosComponent } from './components/navegacion-usuarios/navegacion-usuarios.component';
 import { ResenasComponent } from './components/resenas/resenas.component';
 import { SolicitudLibroComponent } from './components/solicitud-libro/solicitud-libro.component';
-import { GestionUsuariosService } from './services/gestion-usuarios.service';
 import { GestionUsuariosComponent } from './components/gestion-usuarios/gestion-usuarios.component';
 
 export const routes: Routes = [
