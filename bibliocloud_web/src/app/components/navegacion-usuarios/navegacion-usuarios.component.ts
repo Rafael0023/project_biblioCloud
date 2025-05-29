@@ -74,7 +74,7 @@ export class NavegacionUsuariosComponent {
       return [
         { title: 'Panel de control',link: 'panel-usuario' },
         { title: 'Gestión de usuarios', link:'gestion-usuarios' },
-        { title: 'Reportes del sistema' }
+        { title: 'Gestión de libros', link:'gestion-libros' }
       ];
     } else if (rol === 'profesor') {
       return [

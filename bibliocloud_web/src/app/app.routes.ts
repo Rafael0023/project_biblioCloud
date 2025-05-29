@@ -9,6 +9,7 @@ import { NavegacionUsuariosComponent } from './components/navegacion-usuarios/na
 import { ResenasComponent } from './components/resenas/resenas.component';
 import { SolicitudLibroComponent } from './components/solicitud-libro/solicitud-libro.component';
 import { GestionUsuariosComponent } from './components/gestion-usuarios/gestion-usuarios.component';
+import { GestionLibrosComponent } from './components/gestion-libros/gestion-libros.component';
 
 export const routes: Routes = [
  { path: 'registro', component: FormularioRegistroComponent },
@@ -28,6 +29,12 @@ export const routes: Routes = [
     component: NavegacionUsuariosComponent,
     children: [
       { path: 'gestion-usuarios', component: GestionUsuariosComponent },
+      
+    ]},
+    { path: 'usuario',
+    component: NavegacionUsuariosComponent,
+    children: [
+      { path: 'gestion-libros', component: GestionLibrosComponent },
       
     ]},
   { path: '**', redirectTo: '' } 

@@ -29,17 +29,17 @@ export class LibroService {
   }
 
   // Crear un nuevo libro
-  crearLibro(libro: any): Observable<any> {
+  crear(libro: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, libro);
   }
 
   // Actualizar un libro
-  actualizarLibro(id: string, libro: any): Observable<any> {
+  actualizar(id: string, libro: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/${id}`, libro);
   }
 
   // Eliminar un libro
-  eliminarLibro(id: string): Observable<any> {
+  eliminar(id: string): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 }
