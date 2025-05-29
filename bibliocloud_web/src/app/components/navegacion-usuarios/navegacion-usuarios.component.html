@@ -5,9 +5,10 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      @for (link of links ; track link) {
+      <a mat-list-item [routerLink]="[link.link]">{{ link.title }}</a>
+
+          }
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -20,9 +21,20 @@
           (click)="drawer.toggle()">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
+
       }
-      <span >Panel Usuario</span> <!--cambiar titulo-->
+      @for (usuario of usuarios; track $index) {
+       @if (correo == usuario.correo) {
+      <span >Panel {{usuario.rol}} </span> }
+      }
+       
+      <span class="spacer"></span>
+
+      <button mat-icon-button aria-label="Cerrar sesión" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
     </mat-toolbar>
-    <panel-usuario></panel-usuario>
+    <router-outlet></router-outlet>
+   
   </mat-sidenav-content>
 </mat-sidenav-container>

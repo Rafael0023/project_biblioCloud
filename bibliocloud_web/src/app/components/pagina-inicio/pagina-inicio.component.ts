@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { BarraNavegacionComponent } from '../barra-navegacion/barra-navegacion.component';
 import { PiePaginaComponent } from '../pie-pagina/pie-pagina.component';
 import { NavigationEnd, Router, RouterModule, RouterOutlet } from '@angular/router';
-import { MatSidenavContainer, MatSidenavModule } from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'pagina-inicio',
@@ -23,7 +22,7 @@ export class PaginaInicioComponent {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
       
-        const rutasOcultas = ['/panelusuario'];
+        const rutasOcultas = ['/usuario','/usuario/gestion-usuarios','/usuario/panel-usuario'];
         this.mostrarBarra = !rutasOcultas.includes(event.urlAfterRedirects);
       }
     });

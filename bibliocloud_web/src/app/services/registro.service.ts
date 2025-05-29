@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RegistroService {
-  apiUri = '/api/signup';
+  apiUrl = '/api/signup';
 
 
 
@@ -16,7 +16,7 @@ export class RegistroService {
 
   nuevoUsuario(data: any): Observable<any> {
     return this.http.post<any>(
-      this.apiUri,
+      this.apiUrl,
       data,
       { headers: this.httpOptions });
   }

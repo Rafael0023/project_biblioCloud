@@ -43,11 +43,22 @@ const { confirmarContrasena, ...datosUsuario } = this.formulario;
 this.registroService.nuevoUsuario(datosUsuario).subscribe(
     respuesta => {
       console.log('Usuario registrado con éxito:', respuesta);
+      this.limpiarFormulario();
     },
     error => {
       console.error('Error al registrar usuario:', error);
     }
   );
+}
+
+limpiarFormulario(): void {
+  this.formulario = {
+    nombre: '',
+    correo: '',
+    contrasena: '',
+    confirmarContrasena: '',
+    rol: ''
+  };
 }
 
 }

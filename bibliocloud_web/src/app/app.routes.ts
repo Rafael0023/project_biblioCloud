@@ -8,6 +8,8 @@ import { PanelUsuarioComponent } from './components/panel-usuario/panel-usuario.
 import { NavegacionUsuariosComponent } from './components/navegacion-usuarios/navegacion-usuarios.component';
 import { ResenasComponent } from './components/resenas/resenas.component';
 import { SolicitudLibroComponent } from './components/solicitud-libro/solicitud-libro.component';
+import { GestionUsuariosService } from './services/gestion-usuarios.service';
+import { GestionUsuariosComponent } from './components/gestion-usuarios/gestion-usuarios.component';
 
 export const routes: Routes = [
  { path: 'registro', component: FormularioRegistroComponent },
@@ -15,9 +17,20 @@ export const routes: Routes = [
   { path: '', component: BienvenidaComponent },
   { path: 'nosotros', component: SeccionNosotrosComponent },
   { path: 'catalogo', component: LibrosDestacadosComponent },
-  { path: 'panelusuario', component: NavegacionUsuariosComponent }, 
+  { path: 'usuario', component: NavegacionUsuariosComponent }, 
   { path: 'resenas', component: ResenasComponent } ,
   { path: 'solicitud', component: SolicitudLibroComponent } ,
+  { path: 'usuario',component: NavegacionUsuariosComponent,
+    children:[
+      {path:'panel-usuario', component: PanelUsuarioComponent} 
+
+    ]} ,
+  { path: 'usuario',
+    component: NavegacionUsuariosComponent,
+    children: [
+      { path: 'gestion-usuarios', component: GestionUsuariosComponent },
+      
+    ]},
   { path: '**', redirectTo: '' } 
 ];
 

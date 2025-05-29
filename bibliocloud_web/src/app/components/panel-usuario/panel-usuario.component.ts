@@ -7,6 +7,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'panel-usuario',
@@ -24,25 +25,50 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class PanelUsuarioComponent {
   private breakpointObserver = inject(BreakpointObserver);
+  
 
-  /** Based on the screen size, switch from standard to one column per row */
+ 
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
+          { title: 'Libros destacados',libros:{
+            libro:['libro 1','libro 2', 'libro 3']
+          }, cols: 1, rows: 1 },
+           { title: 'Mensages', mensages:{
+            mensage:['mensage 1','mensage 2','mensage 3']
+          }, cols: 1, rows: 1 },
+
+          { title: 'Reseña de libros', resenas:{
+            resena:['Reseña 1','Reseña 2','Reseña 3']
+          }, cols: 1, rows: 1 },
+          { title: 'Comentarios',comentarios:{
+            comentario:['Comentario 1','Comentario 2','Comentario 3']
+          }, cols: 1, rows: 1 }
+          
         ];
       }
 
       return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
+           { title: 'Libros destacados',libros:{
+            libro:['libro 1','libro 2', 'libro 3']
+          }, cols: 1, rows: 1 },
+           { title: 'Mensages', mensages:{
+            mensage:['mensage 1','mensage 2','mensage 3']
+          }, cols: 1, rows: 1 },
+
+          { title: 'Reseña de libros', resenas:{
+            resena:['Reseña 1','Reseña 2','Reseña 3']
+          }, cols: 1, rows: 1 },
+          { title: 'Comentarios',comentarios:{
+            comentario:['Comentario 1','Comentario 2','Comentario 3']
+          }, cols: 1, rows: 1 }
       ];
     })
   );
+
+  
+
+
+
 }
