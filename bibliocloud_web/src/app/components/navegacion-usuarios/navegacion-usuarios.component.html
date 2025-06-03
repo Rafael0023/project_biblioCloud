@@ -21,13 +21,13 @@
           (click)="drawer.toggle()">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-
-      }
+}
+    
       @for (usuario of usuarios; track $index) {
        @if (correo == usuario.correo) {
       <span >Panel {{usuario.rol}} </span> }
       }
-       
+    
       <span class="spacer"></span>
 
       <button mat-icon-button aria-label="Cerrar sesión" (click)="logout()">

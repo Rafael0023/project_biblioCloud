@@ -45,8 +45,23 @@ listarLibros(): void {
     }
   });
 }
-crearLibro(libro:any){
+crearLibro(){
+  const dialogRef = this.dialog.open(DialogEditarLibroComponent, {
+    width: '400px',
+    data: {
+      modo:'crear',
+      libro:{}
 
+    }
+  });
+
+  dialogRef.afterClosed().subscribe((libroNuevo) => {
+    if (libroNuevo) {
+      this.librosService.crear(libroNuevo).subscribe(() => {
+        this.actualizarListaLibros();
+      });
+    }
+  });
 }
 
   actualizarListaLibros(): void {
@@ -56,7 +71,11 @@ crearLibro(libro:any){
  modificarLibro(libro: any): void {
   const dialogRef = this.dialog.open(DialogEditarLibroComponent, {
     width: '400px',
-    data: libro
+    data: {
+      modo:'editar',
+      libro: libro
+
+    }
   });
 
   dialogRef.afterClosed().subscribe((libroActualizado) => {

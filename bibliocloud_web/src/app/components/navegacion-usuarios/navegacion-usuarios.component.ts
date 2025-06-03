@@ -7,7 +7,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Observable, map, shareReplay } from 'rxjs';
-import { PanelUsuarioComponent } from '../panel-usuario/panel-usuario.component';
 import { UsuarioService } from '../../services/usuario.service';
 import { LoginService } from '../../services/login.service';
 import { Router, NavigationEnd, RouterOutlet, RouterModule } from '@angular/router';
@@ -31,7 +30,8 @@ import { Router, NavigationEnd, RouterOutlet, RouterModule } from '@angular/rout
 export class NavegacionUsuariosComponent {
   mostrarPanelUsuario = true;
   usuarios: any[] = [];
-  correo!: string;
+  correo!:any;
+  usuario!: any
   rol!: string;
   links: any[] = [];
 
@@ -43,8 +43,8 @@ export class NavegacionUsuariosComponent {
   );
 
   constructor(
-    private usuarioService: UsuarioService,
     private loginService: LoginService,
+    private usuarioService: UsuarioService,
     private router: Router
   ) {
        this.router.events.subscribe(event => {
@@ -52,41 +52,47 @@ export class NavegacionUsuariosComponent {
       
         const rutasOcultas = ['/gestion-usuarios'];
         this.mostrarPanelUsuario = !rutasOcultas.includes(event.urlAfterRedirects);
+         this.usuario = this.loginService.getUsuario()
+         
+
       }
     });
    }
 
-  ngOnInit(): void {
-    this.correo = this.loginService.getCorreo();
+ ngOnInit(): void {
+  this.usuario = this.loginService.getUsuario();
+  this.usuarioService.usuario().subscribe((res)=>{
+   this.usuarios = res
+  })
+  if (this.usuario) {
+    this.correo = this.usuario.usuario.correo;
+    this.rol = this.usuario.usuario.rol;
+    this.links = this.generarLinksPorRol(this.rol);
 
-    this.usuarioService.usuario().subscribe((res) => {
-      this.usuarios = res;
-      const usuarioActual = this.usuarios.find(usuario => usuario.correo === this.correo);
-      if (usuarioActual) {
-        this.rol = usuarioActual.rol;
-        this.links = this.generarLinksPorRol(this.rol);
-      }
-    });
+    console.log('Correo:', this.correo);
+    console.log('Rol:', this.rol);
+  } else {
+    console.warn('No se encontró el usuario en localStorage');
   }
-
+}
   generarLinksPorRol(rol: string): any[] {
     if (rol === 'administrador') {
       return [
         { title: 'Panel de control',link: 'panel-usuario' },
         { title: 'Gestión de usuarios', link:'gestion-usuarios' },
-        { title: 'Gestión de libros', link:'gestion-libros' }
+        { title: 'Gestión de libros', link:'gestion-libros' },
+        { title: 'Notificaciones', link:'notificaciones' }
       ];
     } else if (rol === 'profesor') {
       return [
-        { title: 'Mis clases' },
-        { title: 'Reseña de libros' },
-        { title: 'Comentarios' }
+        { title: 'Panel de control',link: 'panel-usuario' },
+       { title: 'Notificaciones', link:'notificaciones' }
       ];
     } else if (rol === 'usuario') {
       return [
-        { title: 'Libros recomendados' },
-        { title: 'Mensajes' },
-        { title: 'Comentarios' }
+      { title: 'Panel de control',link: 'panel-usuario' },
+       { title: 'Notificaciones', link:'notificaciones' }
+       
       ];
     } else {
       return [

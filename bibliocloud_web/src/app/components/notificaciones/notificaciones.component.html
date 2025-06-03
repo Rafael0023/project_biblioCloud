@@ -1,0 +1,63 @@
+<div class="space-y-4 p-4 max-w-screen-lg mx-auto">
+  <h1 class="text-2xl font-bold">Notificaciones</h1>
+
+  <!-- Formulario para crear notificación -->
+  <form #form="ngForm" (ngSubmit)="crearNotificacion()" class="bg-white p-4 rounded shadow space-y-4 max-w-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input
+        type="text"
+        class="border p-2 rounded w-full"
+        name="mensaje"
+        placeholder="Escribe un mensaje"
+        [(ngModel)]="nuevaNotificacion.mensaje"
+        required
+      />
+      <input
+        type="text"
+        class="border p-2 rounded w-full"
+        name="usuarioReceptor"
+        placeholder="ID del receptor"
+        [(ngModel)]="nuevaNotificacion.usuarioReceptor"
+        required
+        
+      />
+      
+    </div>
+    <button style="margin: 10px;" mat-flat-button color="primary" type="submit">Crear Notificación</button>
+  </form>
+
+  <!-- Lista de notificaciones -->
+  <ng-container *ngFor="let notificacion of notificaciones">
+    <mat-card class="p-4 border border-gray-200 shadow-sm rounded-lg bg-white overflow-hidden break-words">
+      <mat-card-header>
+        <mat-card-title class="flex items-center gap-2 text-base font-semibold text-gray-800">
+          <mat-icon aria-hidden="true">person</mat-icon>
+          De: {{ notificacion.usuarioEmisor?.nombre || 'Sistema' }}
+        </mat-card-title>
+        <mat-card-subtitle class="text-sm text-gray-500">
+          Fecha: {{ notificacion.createdAt  }}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content class="text-sm text-gray-700 break-words">
+        <p>{{ notificacion.mensaje }}</p>
+        <p class="text-xs text-gray-400">ID: {{ notificacion._id }}</p>
+      </mat-card-content>
+
+      <mat-card-actions class="pt-2 flex gap-2">
+        <button
+          *ngIf="!notificacion.leido"
+          mat-button
+          color="primary"
+          (click)="marcarLeida(notificacion)"
+        >
+          <mat-icon>done</mat-icon> Marcar como leída
+        </button>
+
+        <button mat-button color="warn" (click)="eliminar(notificacion)">
+          <mat-icon>delete</mat-icon> Eliminar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+</div>

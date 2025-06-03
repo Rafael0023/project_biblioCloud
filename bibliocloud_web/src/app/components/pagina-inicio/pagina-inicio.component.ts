@@ -22,7 +22,7 @@ export class PaginaInicioComponent {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
       
-        const rutasOcultas = ['/usuario','/usuario/gestion-usuarios','/usuario/panel-usuario', '/usuario/gestion-libros'];
+        const rutasOcultas = ['/usuario','/usuario/gestion-usuarios','/usuario/panel-usuario', '/usuario/gestion-libros','/usuario/notificaciones'];
         this.mostrarBarra = !rutasOcultas.includes(event.urlAfterRedirects);
       }
     });

@@ -49,14 +49,9 @@ router.post("/login", async (req, res) => {
         expiresIn: 60 * 60 * 24, //un día en segundos tiempo valido para el  token
     });
     res.json({
-
-
-        data: "Bienvenido(a)",
-        auth: true,
-        token,
-
+        usuario
     });
-    console.log("bienvenido");
+    
 
 });
 

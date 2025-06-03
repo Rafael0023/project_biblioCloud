@@ -10,6 +10,7 @@ import { ResenasComponent } from './components/resenas/resenas.component';
 import { SolicitudLibroComponent } from './components/solicitud-libro/solicitud-libro.component';
 import { GestionUsuariosComponent } from './components/gestion-usuarios/gestion-usuarios.component';
 import { GestionLibrosComponent } from './components/gestion-libros/gestion-libros.component';
+import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 
 export const routes: Routes = [
  { path: 'registro', component: FormularioRegistroComponent },
@@ -37,6 +38,11 @@ export const routes: Routes = [
       { path: 'gestion-libros', component: GestionLibrosComponent },
       
     ]},
+    {path: 'usuario', component: NavegacionUsuariosComponent, children:[
+      {path:'notificaciones', component: NotificacionesComponent }
+    ] },
+
   { path: '**', redirectTo: '' } 
+  
 ];
 

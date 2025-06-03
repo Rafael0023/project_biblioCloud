@@ -4,7 +4,7 @@ const LibroSchema = require("../models/libro"); // modelo importado correctament
 
 // Obtener todos los libros con límite opcional
 router.get("/libro", (req, res) => {
-    const limite = parseInt(req.query.limite) || 50; // límite por defecto: 10
+    const limite = parseInt(req.query.limite)|| 50 ; // límite por defecto: 10
 
     LibroSchema.find()
         .limit(limite)
@@ -64,6 +64,26 @@ router.delete("/libro/:id", (req, res) => {
         .catch((error) => {
             res.status(500).json({ message: error.message });
         });
+});
+
+router.post("/libro", async (req, res) => {
+    const { titulo, autor, isbn, editorial, popularidad, imagen } = req.body;
+
+    try {
+        const nuevoLibro = new LibroSchema({
+            titulo,
+            autor,
+            isbn,
+            editorial,
+            imagen,
+            popularidad
+        });
+
+        const libroGuardado = await nuevoLibro.save();
+        res.status(201).json(libroGuardado);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 });
 
 module.exports = router;

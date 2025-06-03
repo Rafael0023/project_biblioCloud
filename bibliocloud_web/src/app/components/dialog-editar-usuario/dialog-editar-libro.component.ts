@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
     selector: 'dialog-editar-libro',
     standalone: true,
     template: `
-    <h1 mat-dialog-title>Editar Libros</h1>
+    <h1 mat-dialog-title>{{ title }}</h1>
     <div mat-dialog-content>
       <form [formGroup]="form">
         <mat-form-field appearance="fill" class="w-full">
@@ -63,20 +63,22 @@ import { CommonModule } from '@angular/common';
 })
 export class DialogEditarLibroComponent {
     form: FormGroup;
+    title = '';
 
     constructor(
         public dialogRef: MatDialogRef<DialogEditarLibroComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
         private fb: FormBuilder
     ) {
+      this.title = data.modo === 'crear'?'Crear libro':'Editar libro'
         this.form = this.fb.group({
-            _id: [data._id],
-            titulo: [data.titulo],
-            autor: [data.autor],
-            isbn: [data.isbn],
-            editorial: [data.editorial],
-      imagen: [data.imagen],
-      popularidad: [data.popularidad]
+            _id: [data.libro._id],
+            titulo: [data.libro.titulo],
+            autor: [data.libro.autor],
+            isbn: [data.libro.isbn],
+            editorial: [data.libro.editorial],
+      imagen: [data.libro.imagen],
+      popularidad: [data.libro.popularidad]
         });
     }
 

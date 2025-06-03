@@ -6,40 +6,26 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
- 
-     private apiUrl = '/api/login';
 
-  constructor(private http: HttpClient) {
-     const correoGuardado = sessionStorage.getItem('correo');
-    if (correoGuardado) {
-      this.correoUsuario = correoGuardado;
-    }
-  }
-   
-   correoUsuario!:any ;
+  private apiUrl = '/api/login';
 
-     setCorreo(correo: string): void {
-    this.correoUsuario = correo;
-    sessionStorage.setItem('correo', correo); 
+  constructor(private http: HttpClient) {}
+
+  setUsuario(usuario: any): void {
+    localStorage.setItem('usuario', JSON.stringify(usuario)); 
   }
 
-     getCorreo(): string {
-    
-     return this.correoUsuario || sessionStorage.getItem('correo') || '';
+  getUsuario(): any {
+    const usuarioGuardado = localStorage.getItem('usuario');
+    return usuarioGuardado ? JSON.parse(usuarioGuardado) : null;
   }
-  
 
   login(credenciales: { correo: string; contrasena: string }): Observable<any> {
     return this.http.post(this.apiUrl, credenciales);
   }
 
-    logout(): void {
-    
-    //localStorage.removeItem('correo');
-    // localStorage.removeItem('token'); 
-   
+  logout(): void {
     localStorage.clear();
-
     window.location.href = '/login';
   }
 }

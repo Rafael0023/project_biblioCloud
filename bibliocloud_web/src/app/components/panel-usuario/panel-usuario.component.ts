@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
@@ -7,7 +7,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { UsuarioService } from '../../services/usuario.service';
+import { NotificacionesComponent } from '../notificaciones/notificaciones.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { LibroService } from '../../services/libros.service';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'panel-usuario',
@@ -21,54 +24,23 @@ import { UsuarioService } from '../../services/usuario.service';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    NotificacionesComponent,
+    RouterLink,RouterOutlet,
+    MatTableModule
   ]
 })
-export class PanelUsuarioComponent {
-  private breakpointObserver = inject(BreakpointObserver);
-   constructor(){}
+export class PanelUsuarioComponent implements OnInit{
+  libros!: any[];
+   columnas: string[] = ['titulo', 'autor', 'isbn'];
+   constructor(private librosService: LibroService){}
+ngOnInit(): void {
+  this.mostrarLibros();
+}
 
- 
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Libros destacados',libros:{
-            libro:['libro 1','libro 2', 'libro 3']
-          }, cols: 1, rows: 1 },
-           { title: 'Mensages', mensages:{
-            mensage:['mensage 1','mensage 2','mensage 3']
-          }, cols: 1, rows: 1 },
-
-          { title: 'Reseña de libros', resenas:{
-            resena:['Reseña 1','Reseña 2','Reseña 3']
-          }, cols: 1, rows: 1 },
-          { title: 'Comentarios',comentarios:{
-            comentario:['Comentario 1','Comentario 2','Comentario 3']
-          }, cols: 1, rows: 1 }
-          
-        ];
-      }
-
-      return [
-           { title: 'Libros destacados',libros:{
-            libro:['libro 1','libro 2', 'libro 3']
-          }, cols: 1, rows: 1 },
-           { title: 'Mensages', mensages:{
-            mensage:['mensage 1','mensage 2','mensage 3']
-          }, cols: 1, rows: 1 },
-
-          { title: 'Reseña de libros', resenas:{
-            resena:['Reseña 1','Reseña 2','Reseña 3']
-          }, cols: 1, rows: 1 },
-          { title: 'Comentarios',comentarios:{
-            comentario:['Comentario 1','Comentario 2','Comentario 3']
-          }, cols: 1, rows: 1 }
-      ];
-    })
-  );
-
-  
-
-
+mostrarLibros(){
+this.librosService.getLibros().subscribe((res)=>{
+    this.libros=res;
+})
+}
 
 }
